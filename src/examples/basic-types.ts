@@ -92,18 +92,55 @@ logLength([1, 2, 3]);
 
 // 7. Write a function that accepts an `unknown` type. Use type narrowing to check if it's a string 
 //    and return its length, or return a message saying it's not a string.
+function checkUnknownType(value: unknown): void {
+    typeof value === 'string'
+        ? console.log(`Task #7: ${value.length}`)
+        : console.log("Task #7: Not a string")
+}
+
+checkUnknownType("Hello, World!");
+checkUnknownType(25);
 
 // 8. Implement a function that returns `void` and simply logs a message like `"This function does not return anything"`.
+function logMessage():void {
+    console.log("Task #8: This Function does not return anything")
+}
+
+logMessage()
 
 // 9. Create a variable of type `null` and `undefined`, and log both to the console.
+let x: null = null
+let y: undefined = undefined
+
+console.log(`Task #9 ${x}`)
+console.log(`Task #9 ${y}`)
 
 // 10. Write a function that never returns (e.g., it throws an error or goes into an infinite loop). 
 //     Use the `never` type for its return type.
+function throwError(): never {
+   throw new Error("Something went wrong")
+}
+// throwError()
 
 // Task 5: Type Narrowing
 // 11. Write a function that accepts a parameter of type `string | number`. 
 //     Use type narrowing to check if the parameter is a string and then convert it to uppercase.
 
+function convertToUpper(value: string | number): string {
+    if (typeof value === "string") {
+        return value.toLocaleUpperCase()
+    }
+    return String(value)
+}
+
+console.log("Task #11: ", convertToUpper("Hello, World!"))
+
 // 12. Create a function that accepts a parameter of type `unknown`. 
 //     Narrow it to a `Date` object using `instanceof` and then return the current day of the week.
-
+function getDayOfWeek(value:  unknown): string {
+    if(value instanceof Date) {
+        const days = ["SUNDAY", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        return days[value.getDay()]
+    } return `Not a valid Date object`
+}
+console.log("Task #12: ", getDayOfWeek(new Date()))
