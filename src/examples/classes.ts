@@ -116,6 +116,20 @@ subExample.showProtectedProperty();
 but eventually it will be compiled to javascript and the error will be gone. */
 
 // 5. Optional properties
-// 6. Parameter properties
+class Person {
+  // Constructor with public properties and one optional property
+  // The 'public' keyword automatically creates and assigns class properties
+  // 'address?' makes the 'address' property optional
+  constructor(
+    public name: string, // Required property
+    public age: number, // Required property
+    public address?: string // Optional property (can be undefined)
+  ) {}
+}
+
+const p1 = new Person("John", 30);
+
+const p2 = new Person("Alice", 25, "123 Main St");
+
 // 7. Getters and Setters
 // 8. Abstract Classes and methods
